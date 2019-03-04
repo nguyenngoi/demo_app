@@ -1,0 +1,3 @@
+rootProject.name = 'iotapp'
+
+include ':app'
