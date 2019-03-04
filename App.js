@@ -19,29 +19,30 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    this.socket = io('http://45.117.168.218:8080/socket');
+    this.socket = io('http://45.117.168.218:8080');
     this.socket.on('connect', () => {
       // this.socket.emit('info', {});
       this.socket.on('info', data => {
 
       })
-      this.socket.on('on', status => {
-        console.log('on', status)
+      this.socket.on('message', status => {
+        console.log('message', status)
         this.setState({ status })
       })
-      this.socket.on('off', status => {
-        console.log('off', status)
-        this.setState({ status })
-      })
+      // this.socket.on('off', status => {
+      //   console.log('off', status)
+      //   this.setState({ status })
+      // })
     })
   }
 
   _onclick = isOn => {
-    if (isOn) {
-      this.socket.emit('on', 1);
-    } else {
-      this.socket.emit('off', 0);
-    }
+    // if (isOn) {
+    //   this.socket.emit('message', 1);
+    // } else {
+    //   this.socket.emit('message', 0);
+    // }
+    this.socket.emit('message', isOn);
   }
 
 
