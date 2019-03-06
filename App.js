@@ -15,7 +15,7 @@ export default class App extends Component {
 
   socket = null
   state = {
-    status: 0,
+    status: '0',
   }
 
   componentDidMount() {
@@ -53,11 +53,11 @@ export default class App extends Component {
         <View>
           <Button
             title='ON'
-            onPress={() => this._onclick(1)}
+            onPress={() => this._onclick('1')}
           />
           <Button
             title='OFF'
-            onPress={() => this._onclick(0)}
+            onPress={() => this._onclick('0')}
           />
         </View>
       </View>
